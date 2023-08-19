@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
 
   const changeValue = (client: Paho.Client) => {
-    const message = new Paho.Message((value + 1).toString());
+    const message: Paho.Message = new Paho.Message((value + 1).toString());
     message.destinationName = 'mqtt-async-test/value';
     console.log('message ----> ', message);
     client.send(message);
@@ -33,7 +33,7 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>PRUEBA DE MQTT</Text>
+      <Text>MQTT</Text>
       <Text>Value is: {value}</Text>
       <Button
         onPress={() => {
