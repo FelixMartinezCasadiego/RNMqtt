@@ -92,22 +92,34 @@ const Home = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Broker Configuration</Text>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Broker host (e.g: broker.hivemq.com)"
-            value={brokerHost}
-            onChangeText={setBrokerHost}
-            editable={!isConnected}
-          />
+          {isConnected ? (
+            <Text style={styles.statusText}>
+              Broker host: <Text style={{color: 'green'}}>{brokerHost}</Text>
+            </Text>
+          ) : (
+            <TextInput
+              style={styles.input}
+              placeholder="Broker host (e.g: broker.hivemq.com)"
+              value={brokerHost}
+              onChangeText={setBrokerHost}
+              editable={!isConnected}
+            />
+          )}
 
-          <TextInput
-            style={styles.input}
-            placeholder="Port (e.g: 8000)"
-            value={brokerPort}
-            onChangeText={setBrokerPort}
-            keyboardType="numeric"
-            editable={!isConnected}
-          />
+          {isConnected ? (
+            <Text style={styles.statusText}>
+              Broker port: <Text style={{color: 'green'}}>{brokerPort}</Text>
+            </Text>
+          ) : (
+            <TextInput
+              style={styles.input}
+              placeholder="Port (e.g: 8000)"
+              value={brokerPort}
+              onChangeText={setBrokerPort}
+              keyboardType="numeric"
+              editable={!isConnected}
+            />
+          )}
 
           <View style={styles.buttonContainer}>
             <Button
