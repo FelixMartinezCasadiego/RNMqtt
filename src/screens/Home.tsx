@@ -33,13 +33,11 @@ const Home = () => {
       return;
     }
 
-    console.log('=== MENSAJE RECIBIDO ===');
+    console.log('=== MESSAGE RECEIVED ===');
     console.log('Topic:', message.destinationName);
     console.log('Mensaje:', message.payloadString);
     console.log('Timestamp:', new Date().toLocaleTimeString());
     console.log('Client exists:', !!clientRef.current);
-    console.log('Connected state (useState):', isConnected);
-    console.log('Connected state (useRef):', isConnectedRef.current);
     console.log('========================');
 
     const messageWithTopic = `[${message.destinationName}] ${message.payloadString}`;
